@@ -1,6 +1,8 @@
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
-export const RESET = 'RESET';
+export const TOGGLEFLAG = 'TOGGLEFLAG';
+export const CHECKFORMINE = 'CHECKFORMINE';
+export const RESETBOARD = 'RESETBOARD';
+export const INCREASEBOARDSIZE = 'INCREASEBOARDSIZE';
+export const DECREASEBOARDSIZE = 'DECREASEBOARDSIZE';
 
 //gameStatus
 export const SETACTIVE = 'SETACTIVE';

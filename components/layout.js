@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import Head from 'next/head';
 import { StyleProvider } from 'cf-style-nextjs';
 import { createComponent } from 'cf-style-container';
 
@@ -11,8 +9,8 @@ const Center = createComponent(({ theme }) => ({
 export default ({ children, title = 'Minesweeper' }) => (
   <StyleProvider>
     <Center>
-        <h1>{title}</h1>
-        {children}
+      <h1>{title}</h1>
+      {children}
     </Center>
   </StyleProvider>
 );
