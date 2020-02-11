@@ -10,7 +10,10 @@ const SquareContainer = createComponent(
     border: `1px solid black`,
     lineHeight: 1,
     textAlign: 'center',
-    fontSize: 18
+    fontSize: 18,
+    '&:hover': {
+      backgroundColor: '#CCC'
+    }
   }),
   'div',
   ['onClick', 'onContextMenu']

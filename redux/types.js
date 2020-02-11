@@ -3,8 +3,4 @@ export const CHECKFORMINE = 'CHECKFORMINE';
 export const RESETBOARD = 'RESETBOARD';
 export const INCREASEBOARDSIZE = 'INCREASEBOARDSIZE';
 export const DECREASEBOARDSIZE = 'DECREASEBOARDSIZE';
-
-//gameStatus
-export const SETACTIVE = 'SETACTIVE';
-export const SETLOST = 'SETLOST';
-export const SETWON = 'SETWON';
+export const REVEALALL = 'REVEALALL';

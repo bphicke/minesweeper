@@ -20,7 +20,6 @@ const Minesweeper = ({ gameStatus, boardSize }) => {
   );
 };
 
-const selectGameStatus = state => state.gameStatus;
 const selectGameBoard = state => state.gameBoard;
 
 const getGameStatus = createSelector([selectGameBoard], gameBoard => {

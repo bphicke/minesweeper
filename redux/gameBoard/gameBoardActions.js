@@ -3,7 +3,8 @@ import {
   CHECKFORMINE,
   RESETBOARD,
   INCREASEBOARDSIZE,
-  DECREASEBOARDSIZE
+  DECREASEBOARDSIZE,
+  REVEALALL
 } from '../types';
 
 function toggleFlagAction(index) {
@@ -44,4 +45,12 @@ function decreaseBoardSizeAction() {
 
 export function decreaseBoardSize(dispatch) {
   dispatch(decreaseBoardSizeAction());
+}
+
+function revealAllAction() {
+  return { type: REVEALALL };
+}
+
+export function revealAll(dispatch) {
+  dispatch(revealAllAction());
 }
