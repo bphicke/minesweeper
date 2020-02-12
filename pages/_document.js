@@ -8,7 +8,6 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Minesweeper</title>
           <meta charSet="utf-8" />
           <meta
             name="viewport"
