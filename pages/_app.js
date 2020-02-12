@@ -5,12 +5,12 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <html>
+      <>
         <Head>
           <title>Minesweeper</title>
         </Head>
         <Component {...pageProps} />
-      </html>
+      </>
     );
   }
 }
