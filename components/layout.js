@@ -6,11 +6,28 @@ const Center = createComponent(({ theme }) => ({
   margin: theme.space[4]
 }));
 
+const Header = createComponent(
+  () => ({
+    height: '10vh',
+    lineHeight: '10vh'
+  }),
+  'h1'
+);
+
+const Body = createComponent(
+  () => ({
+    width: '100vw',
+    height: '90vh',
+    display: 'flex'
+  }),
+  'div'
+);
+
 export default ({ children, title = 'Minesweeper' }) => (
   <StyleProvider>
     <Center>
-      <h1>{title}</h1>
-      {children}
+      <Header>{title}</Header>
+      <Body>{children}</Body>
     </Center>
   </StyleProvider>
 );

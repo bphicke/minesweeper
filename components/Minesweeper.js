@@ -2,14 +2,14 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import Layout from './layout';
 import Desk from './desk';
-import { Square } from './Square';
-import { Inputs } from './Inputs';
+import { Square } from './Square/Square';
+import { Inputs } from './Inputs/Inputs';
 
 const boardMap = (_, index) => {
   return <Square index={index} key={index} />;
 };
 
-const Minesweeper = ({ gameStatus, boardSize }) => {
+const MinesweeperRoot = ({ gameStatus, boardSize }) => {
   return (
     <Layout title={`Minesweeper (${gameStatus})`}>
       <Inputs />
@@ -22,11 +22,11 @@ const Minesweeper = ({ gameStatus, boardSize }) => {
 
 const selectGameBoard = state => state.gameBoard;
 
-const getGameStatus = createSelector([selectGameBoard], gameBoard => {
+const getDerivedGameStatus = (board, boardSize) => {
   let gameStatus = 'active';
   let correctFlagCount = 0;
   let totalFlags = 0;
-  gameBoard.board.forEach(square => {
+  board.forEach(square => {
     if (square.revealed && square.mine) gameStatus = 'lost';
     if (square.flag) {
       if (square.mine) {
@@ -34,20 +34,22 @@ const getGameStatus = createSelector([selectGameBoard], gameBoard => {
       }
       totalFlags += 1;
     }
+    if (correctFlagCount === boardSize && totalFlags === boardSize) {
+      gameStatus = 'won';
+    }
   });
-  if (
-    correctFlagCount === gameBoard.boardSize &&
-    totalFlags === gameBoard.boardSize
-  ) {
-    gameStatus = 'won';
-  }
+  return gameStatus;
+};
 
+const getGameStatus = createSelector([selectGameBoard], gameBoard => {
+  const { board, boardSize } = gameBoard;
+  const gameStatus = getDerivedGameStatus(board, boardSize);
   return {
     gameStatus,
-    boardSize: gameBoard.boardSize
+    boardSize: boardSize
   };
 });
 
 const connector = connect(getGameStatus);
 
-export const MinesweeperWithRedux = connector(Minesweeper);
+export const Minesweeper = connector(MinesweeperRoot);

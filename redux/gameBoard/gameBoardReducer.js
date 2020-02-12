@@ -44,11 +44,11 @@ export default function(state = initialState, action) {
       };
     case DECREASEBOARDSIZE: {
       let nextBoardSize = state.boardSize - 1;
-      if (nextBoardSize < 0) nextBoardSize = 0;
+      if (nextBoardSize < 3) nextBoardSize = 3;
       return {
         ...state,
-        boardSize: state.boardSize - 1,
-        board: buildBoard(state.boardSize - 1)
+        boardSize: nextBoardSize,
+        board: buildBoard(nextBoardSize)
       };
     }
     case CHECKFORMINE: {

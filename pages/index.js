@@ -1,7 +1,7 @@
 import { withRedux } from '../lib/withRedux';
-import { MinesweeperWithRedux } from '../components/MinesweeperWithRedux';
+import { Minesweeper } from '../components/Minesweeper';
 
-const Index = () => <MinesweeperWithRedux />;
+const Index = () => <Minesweeper />;
 
 Index.getInitialProps = () => {
   return {};
